@@ -1,13 +1,16 @@
 class Registrar
-  def remove_student_from_schedule(student, schedule, quarter_id)
+  def get_course_list(schedule, quarter_id)
     quarter = schedule.quarter[quarter_id]
-    course_list = quarter.course_list
+    return quarter.course_list
+  end
+
+  def remove_student_from_schedule(student, schedule, quarter_id)
+    course_list = get_course_list(schedule, quarter_id)
     student.remove_from_schedule(course_list)
   end
 
   def add_student_to_schedule(student, schedule, quarter_id)
-    quarter = schedule.quarter[quarter_id]
-    course_list = quarter.course_list
+    course_list = get_course_list(schedule, quarter_id)
     student.add_to_schedule(course_list)
   end
 end
