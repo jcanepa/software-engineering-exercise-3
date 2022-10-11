@@ -22,7 +22,7 @@ class Registrar
 
   def initialize(reference=SchoolScheduleReference.new, quarter_id)
     @course_list = reference.get_course_list(quarter_id)
-	end
+  end
 
   def remove_from_schedule(course)
     @course_list.remove(
