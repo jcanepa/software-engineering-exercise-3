@@ -2,7 +2,7 @@ class SchoolScheduleReference
   attr_reader :schedule
 
   def initialize()
-    @schedule = fetch_osu_schedule()
+    @schedule = fetch_school_schedule()
   end
 
   def get_quarter(quarter_id)
@@ -13,7 +13,7 @@ class SchoolScheduleReference
     get_quarter(quarter_id).course_list
   end
 
-  private def fetch_osu_schedule; end # TODO retrieve school schedule
+  private def fetch_school_schedule; end # TODO implement
 end
 
 class Registrar
