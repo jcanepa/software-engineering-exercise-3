@@ -10,7 +10,7 @@ class SchoolScheduleReference
   end
 
   def get_course_list(quarter_id)
-    return get_quarter.course_list
+    return get_quarter(quarter_id).course_list
   end
 
   private def fetch_osu_schedule; end # TODO retrieve school schedule
