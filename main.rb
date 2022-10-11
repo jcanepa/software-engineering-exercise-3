@@ -25,8 +25,7 @@ class Registrar
   end
 
   def remove_from_schedule(course)
-    @course_list.remove(
-      course)
+    @course_list.remove(course)
   end
 
   def add_to_schedule(course)
