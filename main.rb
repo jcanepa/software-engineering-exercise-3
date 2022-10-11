@@ -20,10 +20,8 @@ class Registrar
   MAX_COURSES = 5
   attr_reader :course_list
 
-  def initialize(
-    reference=SchoolScheduleReference.new,
-    quarter_id)
-		@course_list = reference.get_course_list(quarter_id)
+  def initialize(reference=SchoolScheduleReference.new, quarter_id)
+    @course_list = reference.get_course_list(quarter_id)
 	end
 
   def remove_from_schedule(course)
