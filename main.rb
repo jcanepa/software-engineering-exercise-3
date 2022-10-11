@@ -6,11 +6,11 @@ class SchoolScheduleReference
   end
 
   def get_quarter(quarter_id)
-    return @schedule.quarter[quarter_id]
+    @schedule.quarter[quarter_id]
   end
 
   def get_course_list(quarter_id)
-    return get_quarter(quarter_id).course_list
+    get_quarter(quarter_id).course_list
   end
 
   private def fetch_osu_schedule; end # TODO retrieve school schedule
@@ -33,6 +33,6 @@ class Registrar
   end
 
   private def course_list_max
-    return @course_list.maximum_number_of_courses
+    @course_list.maximum_number_of_courses
   end
 end
