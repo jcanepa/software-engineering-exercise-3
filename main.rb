@@ -1,26 +1,24 @@
-class SchoolScheduleReference
+# A list of courses for a given academic quarter.
+class CourseList
+  attr_reader :maximum_number_of_courses
 
-  def initialize()
-    @schedule = fetch_school_schedule()
+  def initialize(quarter)
+    @list = fetch_term_list(quarter)
+    @maximum_number_of_courses = 7
   end
 
-  def get_quarter(quarter_id)
-    @schedule.quarter[quarter_id]
-  end
-
-  def get_course_list(quarter_id)
-    get_quarter(quarter_id).course_list
-  end
-
-  private def fetch_school_schedule; end # TODO implement
-
+  # TODO: implement empty methods below
+  def fetch_term_list(quarter); end
+  def remove(course); end
+  def add(course); end
 end
 
+# A registrar manages the course list for a given quarter.
 class Registrar
   MAX_COURSES = 5
 
-  def initialize(reference=SchoolScheduleReference.new, quarter_id)
-    @course_list = reference.get_course_list(quarter_id)
+  def initialize(quarter_id, course_list = nil)
+    @course_list = course_list || CourseList.new(quarter_id)
   end
 
   def remove_from_schedule(course)
@@ -28,11 +26,10 @@ class Registrar
   end
 
   def add_to_schedule(course)
-    @course_list.add(course) if course_list_max() < MAX_COURSES
+    @course_list.add(course) if course_list_max < MAX_COURSES
   end
 
-  private def course_list_max
+  def course_list_max
     @course_list.maximum_number_of_courses
   end
-
 end
