@@ -13,6 +13,7 @@ class SchoolScheduleReference
   end
 
   private def fetch_school_schedule; end # TODO implement
+
 end
 
 class Registrar
@@ -33,4 +34,5 @@ class Registrar
   private def course_list_max
     @course_list.maximum_number_of_courses
   end
+
 end
